@@ -1,11 +1,11 @@
 function bfs(rootNode, vertices, edges){
     rootNode.distance = 0
-    let found = [rootNode]
+    let queue = [rootNode]
     let final = [rootNode]
-    while (found.length > 0) {
-        let cur = found.shift()
+    while (queue.length > 0) {
+        let cur = queue.shift()
         let adjacent = findAdjacent(cur.name, vertices, edges)
-        found = found.concat(adjacent)
+        queue = queue.concat(adjacent)
         markDistanceAndPredecessor(cur, adjacent)
         final = final.concat(adjacent)
     }
